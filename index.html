@@ -8,40 +8,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* target the actual polaroid container slot */
+/* 1. This cleanly chops off the photo spilling out the bottom of the white card */
+.frame-outer {
+  position: relative !important;
+  overflow: hidden !important; 
+}
+
+/* Keeps the internal photo slot aligned */
 .frame-photo-slot {
   position: relative !important;
   display: block !important;
   width: 100% !important;
   height: 100% !important;
-  overflow: visible !important; /* lets the hat sit outside the frame border */
+  overflow: visible !important; 
 }
 
-/* Fixes the image stretch completely */
+/* Keeps your photo beautifully sized inside the frame */
 .frame-photo-slot img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important; /* cleanly fills the frame without distortion */
+  object-fit: cover !important; 
   display: block !important;
 }
 
-/* Places the party hat directly onto the frame slot */
+/* The Party Hat configuration */
 .frame-photo-slot::before {
   content: "";
   position: absolute;
   
-  /* Link to your image */
   background-image: url('partyhat.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   
-  /* Size of the hat */
   width: 65px;       
   height: 65px;      
   
-  /* Positioning - Pinned directly to the photo box now! */
-  top: -35px;        /* Lifts it perfectly over the top edge of the photo */
-  left: 20%;         /* Adjust this percentage to slide it right onto the head */
+  /* Pinned beautifully on the photo */
+  top: -35px;        
+  left: 20%;         
   
   z-index: 999;      
   transform: rotate(-12deg); 
