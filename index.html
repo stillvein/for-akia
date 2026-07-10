@@ -1094,6 +1094,20 @@
     justify-content:space-evenly;
     opacity:0.9;
   }
+
+  /* Removes the white background and shadow from the icon wrappers */
+.icon-box, .grid-item, .menu-icon {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensures the images inside stay crisp and clear */
+.icon-box img, .grid-item img, .menu-icon img {
+  background: transparent !important;
+  mix-blend-mode: normal !important; /* Keeps transparency clean */
+}
   .message-decor-side.left{ left:0; }
   .message-decor-side.right{ right:0; }
   .message-decor-side img{ width:70%; height:auto; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.3)); }
