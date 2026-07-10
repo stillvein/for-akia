@@ -1656,6 +1656,16 @@
     document.getElementById('musicSpotify').classList.remove('show');
     document.getElementById('musicSong').classList.add('show');
   });
+
+// Automatically plays the music on the first click anywhere on the page
+document.addEventListener('click', function() {
+  const audio = document.getElementById('bgMusic');
+  if (audio && audio.paused) {
+    audio.play().catch(error => {
+      console.log("Playback engine waiting for interaction...", error);
+    });
+  }
+}, { once: true }); // '{ once: true }' makes sure this only runs on the first click
 </script>
 
 </body>
